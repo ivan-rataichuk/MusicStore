@@ -1,0 +1,18 @@
+﻿<div (click)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+     [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p>Title: {{ record.title }}</p>
+            <p>Author: {{ record.author }}</p>
+            <p>Year: {{ record.year }}</p>
+            <p>Comment: {{ record.comment }}</p>
+            <p *ngFor="let track of record.tracks">
+                Title: {{track.title}} / Length: {{track.trackLength}}
+            </p>
+            <div>
+                <button type="button" class="btn btn-default" (click)="hide()">Close</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

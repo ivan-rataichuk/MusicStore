@@ -1,0 +1,8 @@
+﻿<div>
+    <div class="record" (click)="modal.show()">
+        <span>Title: {{ record.title }}</span>
+        <span>Author: {{ record.author }}</span>
+        <span>Year: {{ record.year }}</span>
+    </div>
+    <modal #modal [record] = "record"></modal>
+</div>

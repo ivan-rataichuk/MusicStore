@@ -1,0 +1,7 @@
+﻿.modal {
+    background: rgba(0,0,0,0.6);
+}
+
+.modal .modal-content{
+    padding: 10px;
+}

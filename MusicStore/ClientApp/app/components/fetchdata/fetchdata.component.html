@@ -1,0 +1,32 @@
+<h1>Records Store</h1>
+
+<p *ngIf="!records"><em>Loading...</em></p>
+
+<div>
+    <p>SortBy:</p>
+</div>
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-default" [class.active]='sorting === 0'>
+        <input type="radio" [(ngModel)]="sorting" (click)="sortByTitle()" value="0"> Title
+    </label>
+    <label class="btn btn-default" [class.active]='sorting === 1'>
+        <input type="radio" [(ngModel)]="sorting" (click)="sortByAuthor()" value="1"> Author
+    </label>
+    <label class="btn btn-default" [class.active]='sorting === 2'>
+        <input type="radio" [(ngModel)]="sorting"(click)="sortByYear()"  value="2"> Year
+    </label>
+</div>
+<div class='table' *ngIf="records">
+    <div >
+        <record 
+                *ngFor="let record of records" 
+                [record] = "record">
+        </record>
+    </div>
+</div>
+
+<div>
+    <button class="btn" [ngClass]="{'disabled': !canGetPrevious }" (click) = "getPrevious()">Previous</button>
+    <span>Page {{page}}/{{pageCount}}</span>
+    <button class="btn" [ngClass]="{'disabled': !canGetNext }" (click) = "getNext()">Next</button>
+</div>
